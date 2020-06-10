@@ -1,20 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Film from "./film";
+axios.defaults.baseURL = "http://127.0.0.1:8000/api";
 function Main() {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">App Component</div>
-
-                        <div className="card-body">
-                            I'm an example component!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Fragment>
+            <Router>
+                <Route exact path="/films" component={Film}></Route>
+            </Router>
+        </Fragment>
     );
 }
 
