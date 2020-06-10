@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 class FilmSeeder extends Seeder
 {
     /**
@@ -11,6 +10,9 @@ class FilmSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // factory(App\Comment::class, 2)->create();
+        factory(App\Film::class, 6)->create()->each(function ($film) {
+            $film->comments()->save(factory(App\Comment::class)->make());
+        });
     }
 }
