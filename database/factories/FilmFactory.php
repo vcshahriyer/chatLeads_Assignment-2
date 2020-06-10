@@ -13,7 +13,7 @@ $factory->define(App\Film::class, function (Faker $faker) {
         "date" => $faker->date($format = 'Y-m-d', $max = 'now'),
         "rating" => $faker->numberBetween($min = 1, $max = 5),
         "ticket" => $faker->numerify('Ticket ###'),
-        "price" => $faker->randomDigitNotNull,
+        "price" => $faker->numberBetween($min = 10, $max = 100),
         "country" => $faker->country,
         "genre" => join(",",$faker->randomElements(["Action","Adventure",
         "Comedy",
